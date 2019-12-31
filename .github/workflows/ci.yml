@@ -1,0 +1,30 @@
+name: Extility CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+
+    strategy:
+      matrix:
+        dart_version:
+          # Note: This should always include the minimum SDK
+          # version listed in pubspec.yaml
+          - 2.6.0
+          - latest
+
+    container:
+      image:  google/dart:${{ matrix.dart_version }}
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        run: pub get
+      - name: Run analyzer
+        run: pub run dart_dev analyze --analyzer-args '--fatal-lints --fatal-infos'
+      - name: Check formatting
+        run: pub run dart_dev format --check
+      - name: Run tests
+        run: pub run dart_dev test

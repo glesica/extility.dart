@@ -1,0 +1,13 @@
+name: extility
+description: A collection of useful static extension methods on basic Dart types.
+version: 0.1.0
+homepage: https://github.com/glesica/extility.dart
+author: George Lesica <george@lesica.com>
+
+environment:
+  sdk: '>=2.6.0 <3.0.0'
+
+dev_dependencies:
+  dart_dev: ^3.2.1
+  pedantic: ^1.8.0
+  test: ^1.6.0
