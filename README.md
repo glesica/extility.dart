@@ -17,6 +17,9 @@ just for human consumption.
 
   * `bracket` - add values at the beginning and end of an iterable
   * `interleave` - insert values between elements of an iterable
+  * `zip` - zip two homogeneous lists into one list of lists
+  * `zipTo` - zip two arbitrary lists into a list of arbitrary values
+  * `zipToPairs` - zip two arbitrary lists into a list of `Pair`s
 
 ## Development
 
