@@ -95,6 +95,13 @@ void main() {
         expect(output, hasLength(2));
         expect(output, everyElement(isA<Map<String, int>>()));
       });
+
+      test('should support async combine functions', () async {
+        final output = [1, 2].zipTo([5, 6], (l, r) => Future.value(l + r));
+        final values = await Future.wait(output);
+        expect(values, hasLength(2));
+        expect(values, containsAllInOrder([6, 8]));
+      });
     });
 
     group('zipToPair()', () {
