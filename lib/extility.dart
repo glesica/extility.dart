@@ -1,7 +1,6 @@
 export 'package:extility/src/comparable_extensions.dart'
     show ComparableExtensions;
-export 'package:extility/src/iterable_extensions.dart'
-    show IterableExtensions;
+export 'package:extility/src/iterable_extensions.dart' show IterableExtensions;
 
 // Supporting symbols
 
