@@ -1,4 +1,4 @@
-import 'package:extility/src/iterable/pair.dart';
+import 'package:extility/src/pair.dart';
 
 /// Extensions on any [Iterable].
 extension IterableExtensions<E> on Iterable<E> {
@@ -39,8 +39,8 @@ extension IterableExtensions<E> on Iterable<E> {
   }
 
   /// Zip the elements of the iterable together with those of the
-  /// given iterable to form a list of lists (of length two) of
-  /// elements of the same as those of the inputs..
+  /// given iterable to form an iterable of lists (of length two)
+  /// of elements at the same indices as those of the inputs.
   ///
   /// For example:
   ///

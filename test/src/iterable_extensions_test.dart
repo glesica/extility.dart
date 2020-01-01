@@ -1,7 +1,7 @@
-import 'package:extility/src/iterable/pair.dart';
 import 'package:test/test.dart';
 
-import 'package:extility/src/iterable/iterable_extensions.dart';
+import 'package:extility/src/iterable_extensions.dart';
+import 'package:extility/src/pair.dart';
 
 void main() {
   group('IterableExtensions', () {
