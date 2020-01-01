@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:extility/src/comparable/comparable_extensions.dart';
+import 'package:extility/src/comparable_extensions.dart';
 
 void main() {
   group('ComparableExtensions', () {
