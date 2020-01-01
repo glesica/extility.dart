@@ -38,6 +38,22 @@ extension IterableExtensions<E> on Iterable<E> {
     yield last;
   }
 
+  /// Return an iterable with any `null` elements removed.
+  ///
+  /// For example:
+  ///
+  /// [1, null, 2].whereNotNull() // [1, 2]
+  /// [1, 2].whereNotNull() // [1, 2]
+  /// [].whereNotNull() // []
+  Iterable<E> whereNotNull() sync* {
+    for (final element in this) {
+      if (element == null) {
+        continue;
+      }
+      yield element;
+    }
+  }
+
   /// Zip the elements of the iterable together with those of the
   /// given iterable to form an iterable of lists (of length two)
   /// of elements at the same indices as those of the inputs.
