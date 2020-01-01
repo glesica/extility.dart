@@ -1,3 +1,4 @@
+import 'package:extility/src/iterable/pair.dart';
 import 'package:test/test.dart';
 
 import 'package:extility/src/iterable/iterable_extensions.dart';
@@ -52,6 +53,55 @@ void main() {
         final output = input.interleave(() => 0);
         expect(output, hasLength(3));
         expect(output, containsAllInOrder([1.0, 0, 2.0]));
+      });
+    });
+
+    group('zip()', () {
+      test('should return an empty list if both iterables are empty', () {
+        expect([].zip([]), isEmpty);
+      });
+
+      test('should return values zipped correctly', () {
+        final output = [1, 2].zip([3, 4]).toList();
+        expect(output, hasLength(2));
+        expect(output, everyElement(hasLength(2)));
+        expect(output[0], containsAllInOrder([1, 3]));
+        expect(output[1], containsAllInOrder([2, 4]));
+      });
+
+      test('should allow the left iterable to be shorter', () {
+        final output = [1].zip([3, 4]).toList();
+        expect(output, hasLength(2));
+        expect(output, everyElement(hasLength(2)));
+        expect(output[0], containsAllInOrder([1, 3]));
+        expect(output[1], containsAllInOrder([null, 4]));
+      });
+
+      test('should allow the right iterable to be shorter', () {
+        final output = [1, 2].zip([3]).toList();
+        expect(output, hasLength(2));
+        expect(output, everyElement(hasLength(2)));
+        expect(output[0], containsAllInOrder([1, 3]));
+        expect(output[1], containsAllInOrder([2, null]));
+      });
+    });
+
+    group('zipTo()', () {
+      test('should use the combine function', () {
+        final output = ['Kate', 'Pablo'].zipTo(
+          [28, 31],
+          (l, r) => <String, int>{l: r},
+        );
+        expect(output, hasLength(2));
+        expect(output, everyElement(isA<Map<String, int>>()));
+      });
+    });
+
+    group('zipToPair()', () {
+      test('should combine elements into Pairs', () {
+        final output = ['Kate', 'Pablo'].zipToPairs([28, 31]);
+        expect(output, hasLength(2));
+        expect(output, everyElement(isA<Pair<String, int>>()));
       });
     });
   });
