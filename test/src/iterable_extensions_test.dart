@@ -56,6 +56,24 @@ void main() {
       });
     });
 
+    group('whereNotNull()', () {
+      test('should return an empty iterable when called on one', () {
+        expect([].whereNotNull(), hasLength(0));
+      });
+
+      test('should not change an iterable with no null elements', () {
+        final output = [1, 2].whereNotNull();
+        expect(output, hasLength(2));
+        expect(output, containsAllInOrder([1, 2]));
+      });
+
+      test('should remove null elements from an iterable', () {
+        final output = [null, 1, null, 2, null].whereNotNull();
+        expect(output, hasLength(2));
+        expect(output, containsAllInOrder([1, 2]));
+      });
+    });
+
     group('zip()', () {
       test('should return an empty list if both iterables are empty', () {
         expect([].zip([]), isEmpty);

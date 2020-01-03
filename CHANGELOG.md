@@ -4,6 +4,7 @@
 - Add `Iterable<E>.zipTo`
 - Add `Iterable<E>.zipToPairs`
 - Add `Pair<L, R>`
+- Add `Iterable<E>.whereNotNull`
 
 ## 0.1.0
 

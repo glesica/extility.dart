@@ -20,4 +20,7 @@ void main() {
   print('[\'Kate\', \'Pablo\'].zipToPairs([28, 31])');
   print(['Kate', 'Pablo'].zipToPairs([28, 31]));
   print('');
+
+  print('[null, 1, null, 2, null].whereNotNull()');
+  print([null, 1, null, 2, null].whereNotNull());
 }
